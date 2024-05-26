@@ -1,5 +1,81 @@
 {
-  "threads": [],
-  "comments": [],
-  "users": []
+  "threads": [
+    {
+      "title": "sasdfasfsa",
+      "topic": "fdfdafasdfasfadsfas",
+      "createdAt": "2024-05-26T19:40:29.222+09:00",
+      "commentTotal": 5,
+      "id": 1
+    },
+    {
+      "title": "sadfadsfads",
+      "topic": "sadfdsafsafdsafasdfa",
+      "createdAt": "2024-05-26T19:40:32.168+09:00",
+      "commentTotal": 0,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "commenter": "safdsaf",
+      "commentContent": "sdasssssss",
+      "commentNo": 1,
+      "userId": 0,
+      "createdAt": "2024-05-26T19:40:36.034+09:00",
+      "threadId": "1",
+      "id": 1
+    },
+    {
+      "commenter": "sfadafsd",
+      "commentContent": "sdfsadfasfsafa",
+      "commentNo": 2,
+      "userId": 0,
+      "createdAt": "2024-05-26T19:40:38.541+09:00",
+      "threadId": "1",
+      "id": 2
+    },
+    {
+      "commenter": "dsafsdafafa",
+      "commentContent": "sfsdafdsafsafasdfsadfsafsadfa",
+      "commentNo": 3,
+      "userId": 0,
+      "createdAt": "2024-05-26T19:40:42.611+09:00",
+      "threadId": "1",
+      "id": 3
+    },
+    {
+      "commenter": "safsafa",
+      "commentContent": "asdfsafdsafdsaf",
+      "commentNo": 4,
+      "userId": 0,
+      "createdAt": "2024-05-26T19:40:45.461+09:00",
+      "threadId": "1",
+      "id": 4
+    },
+    {
+      "commenter": "ffff",
+      "commentContent": "ffff",
+      "commentNo": 5,
+      "userId": 0,
+      "createdAt": "2024-05-26T19:40:48.005+09:00",
+      "threadId": "1",
+      "id": 5
+    }
+  ],
+  "users": [
+    {
+      "name": "sadfa",
+      "hashedPassword": "$2b$10$YffG7PPEFeOp/uVYR63rq.SNfmG.c.RQ3jqWGEsN01DeLQ7y1rA/6",
+      "comments": [],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoic2FkZmEiLCJpYXQiOjE3MTY3MjEwMjAsImV4cCI6MTcxNjgwNzQyMH0.tjhgFEI2DZO7_-hFKsnyHfu729gdM0vcitrw4wRlGHM",
+      "id": 1
+    },
+    {
+      "name": "dfafda",
+      "hashedPassword": "$2b$10$gDc6FXi0RIDcme.EeNBWTOH/9XoX/ADfNvy7ftdB0HrXk8Y/XHFbu",
+      "comments": [],
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZGZhZmRhIiwiaWF0IjoxNzE2NzIxMDI0LCJleHAiOjE3MTY4MDc0MjR9.KaQK0tKoU_kLyfle7E1B_hiVObzlsq4-_5YBLbp7Q1o",
+      "id": 2
+    }
+  ]
 }
