@@ -4,13 +4,14 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:import/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:tailwindcss/recommended',
+    'prettier',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', 'unused-imports'],
+  plugins: ['react-refresh', 'import', 'unused-imports'],
   rules: {
     'react-refresh/only-export-components': [
       'warn',
@@ -36,7 +37,43 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+    'import/newline-after-import': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+          'type',
+        ],
+        pathGroups: [
+          {
+            pattern: '{react,next,next/**}',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: '@/**',
+            group: 'parent',
+            position: 'before',
+          },
+        ],
+        'newlines-between': 'never',
+        pathGroupsExcludedImportTypes: ['builtin'],
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+      },
+    ],
     'object-shorthand': 'error',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
     'react/display-name': 'off',
     'react/jsx-curly-brace-presence': 'error',
     'react/self-closing-comp': [
@@ -46,7 +83,5 @@ module.exports = {
         html: false,
       },
     ],
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
   },
 }
