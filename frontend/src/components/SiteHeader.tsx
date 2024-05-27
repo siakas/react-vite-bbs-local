@@ -1,3 +1,3 @@
 export const SiteHeader = () => {
-  return <div>Enter</div>
+  return <div className="py-10 text-lg">Enterああｌｋｊだｆｓ</div>
 }
