@@ -74,6 +74,7 @@ module.exports = {
     'object-shorthand': 'error',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
     'react/display-name': 'off',
     'react/jsx-curly-brace-presence': 'error',
     'react/self-closing-comp': [
