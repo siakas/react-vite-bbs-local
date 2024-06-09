@@ -1,10 +1,12 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
+  CardFooter,
 } from '@/components/ui/card'
 
 export const Board = () => {
@@ -28,6 +30,10 @@ export const Board = () => {
           features innovative technology and a sleek design.
         </p>
       </CardContent>
+      <CardFooter className="flex items-center justify-between">
+        <p className="text-sm text-gray-500">12 comments</p>
+        <Button size="sm">View Comments</Button>
+      </CardFooter>
     </Card>
   )
 }

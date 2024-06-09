@@ -84,5 +84,6 @@ module.exports = {
         html: false,
       },
     ],
+    'tailwindcss/no-custom-classname': 'off',
   },
 }
