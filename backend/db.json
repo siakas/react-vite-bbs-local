@@ -1,0 +1,52 @@
+{
+  "threads": [
+    {
+      "id": "1",
+      "title": "タイトル",
+      "topic": "トピック"
+    },
+    {
+      "id": "3",
+      "title": "タイトル3",
+      "topic": "トピック3"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "commenter": "名無し",
+      "commentContent": "コメント内容"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "typicode",
+      "password": 1234
+    },
+    {
+      "name": "test",
+      "email": "test@example.com",
+      "comments": [],
+      "id": "4QWBqKi"
+    },
+    {
+      "name": "test",
+      "email": "test@example.com",
+      "comments": [],
+      "id": "txADZZv"
+    },
+    {
+      "name": "test",
+      "email": "test@example.com",
+      "comments": [],
+      "id": "2JsvoA6"
+    },
+    {
+      "name": "test",
+      "email": "test@example.com",
+      "comments": [],
+      "id": "UyNLjpM"
+    }
+  ]
+}
