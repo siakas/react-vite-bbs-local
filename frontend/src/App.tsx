@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { PlusIcon } from 'lucide-react'
 import { Board } from '@/components/Board'
 import { CreateThreadDialog } from '@/components/CreateThreadDialog'
@@ -19,29 +18,6 @@ import { Label } from '@/components/ui/label'
 import { Toaster } from '@/components/ui/sonner'
 
 function App() {
-  const putUser = {
-    name: 'putUser',
-    email: 'put@example.com',
-    comments: [],
-  }
-  axios
-    .put(`https://jsonplaceholder.typicode.com/users/1`, putUser)
-    .then((res) => {
-      console.log(res.data)
-    })
-  const patchUser = {
-    name: 'patchUser',
-    email: 'patch@example.com',
-  }
-  axios
-    .patch(`https://jsonplaceholder.typicode.com/users/1`, patchUser)
-    .then((res) => {
-      console.log(res.data)
-    })
-  axios.delete(`https://jsonplaceholder.typicode.com/users/1`).then((res) => {
-    console.log(res)
-  })
-
   return (
     <>
       <div className="flex flex-col">
