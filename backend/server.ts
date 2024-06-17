@@ -1,3 +1,6 @@
+import fetch from 'node-fetch'
+import { Comment } from './types'
+
 const dotenv = require('dotenv')
 dotenv.config()
 const jwt = require('jsonwebtoken')
@@ -7,7 +10,6 @@ const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
-import fetch from 'node-fetch'
 
 // クッキーを解析するためのミドルウェアを使用
 server.use(cookieParser())
@@ -74,6 +76,92 @@ server.post('/threads', (req, res, next) => {
   req.body.createdAt = formattedDate
   req.body.commentTotal = 0
 
+  next()
+})
+
+// コメント投稿
+server.post('/threds/:threadId/comments', async (req, res, next) => {
+  const threadId = req.params.threadId
+
+  // threadId が数値でない場合はエラーを返す
+  if (isNaN(Number(threadId))) {
+    return res.status(400).json({
+      message: '無効なスレッドIDです',
+    })
+  }
+
+  // コメント本文が入力されていない場合はエラーを返す
+  if (!req.body.commentContent) {
+    return res.status(400).json({
+      message: 'コメントが入力されていません',
+    })
+  }
+
+  // コメントを取得
+  const response = await fetch(`${BASE_URL}/comments`)
+  const comments: any = await response.json()
+
+  // 現在のスレッドのコメント数を取得
+  const commentsInThread =
+    comments.length > 0
+      ? comments.filter((comment) => comment.threadId === threadId).length
+      : 0
+
+  // スレッドのコメント数が 10 個以上の場合はエラーを返す
+  if (commentsInThread >= 10) {
+    return res.status(400).json({
+      message: 'スレッドのコメントは10個までです',
+    })
+  }
+
+  try {
+    const threadResponse = await fetch(`${BASE_URL}/threads/${threadId}`)
+    if (!threadResponse.ok) {
+      throw new Error('スレッドのデータを取得できませんでした')
+    }
+    const threadData: any = await threadResponse.json()
+
+    // コメント数をカウントアップ
+    threadData.commentTotal += 1
+    const newCommentTotal = threadData.commentTotal
+
+    // コメントデータの作成
+    const updateResponse = await fetch(`${BASE_URL}/threads/${threadId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(threadData),
+    })
+
+    // スレッドのコメント数の更新に失敗した場合はエラーを返す
+    if (!updateResponse.ok) {
+      throw new Error('スレッドの総コメント数の更新に失敗しました')
+    }
+
+    // コメント番号、投稿者名、ユーザ ID の設定
+    req.body.commentNo = newCommentTotal
+    if (!req.body.commenter) {
+      req.body.commenter = '名無し'
+    }
+    if (!req.user) {
+      req.body.userId = 0
+    } else {
+      req.body.userId = req.user.id
+    }
+
+    const now = new Date()
+    const japanTimeOffset = 9 * 60 // 日本時間のオフセット（分）
+    // 現在の UTC 時刻に日本時間のオフセットを加算
+    now.setMinutes(now.getMinutes() + japanTimeOffset)
+    // 日本時間の日時文字列を作成
+    const formattedDate = now.toISOString().replace('Z', '+09:00')
+    req.body.createdAt = formattedDate
+  } catch (error) {
+    return res.status(500).json({
+      message: `コメント投稿のサーバーサイドでの処理中にエラーが発生しました。${error}`,
+    })
+  }
   next()
 })
 
