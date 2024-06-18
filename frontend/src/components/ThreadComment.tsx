@@ -7,10 +7,15 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
 
-export const ThreadComment = () => {
+type Props = {
+  root?: boolean
+}
+
+export const ThreadComment = ({ root = false }: Props) => {
   return (
-    <Card>
+    <Card className={cn(root && 'bg-blue-50', !root && 'ml-20')}>
       <CardHeader>
         <div className="flex items-center gap-3">
           <Avatar>

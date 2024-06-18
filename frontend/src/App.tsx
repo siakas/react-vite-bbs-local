@@ -46,7 +46,7 @@ function App() {
               </Button>
             </div>
             <div className="space-y-6">
-              <ThreadComment />
+              <ThreadComment root={true} />
               <ThreadComment />
               <ThreadComment />
               <ThreadComment />
