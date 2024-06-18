@@ -1,6 +1,3 @@
-import fetch from 'node-fetch'
-import { Comment } from './types'
-
 const dotenv = require('dotenv')
 dotenv.config()
 const jwt = require('jsonwebtoken')
@@ -10,6 +7,8 @@ const jsonServer = require('json-server')
 const server = jsonServer.create()
 const router = jsonServer.router('db.json')
 const middlewares = jsonServer.defaults()
+
+// import fetch from 'node-fetch'
 
 // クッキーを解析するためのミドルウェアを使用
 server.use(cookieParser())
@@ -164,6 +163,23 @@ server.post('/threds/:threadId/comments', async (req, res, next) => {
   }
   next()
 })
+
+// サインアウト
+server.post('/users/signout', (req, res) => {
+  // トークンを削除することでサインアウトをおこなう
+  res.clearCookie('token', {
+    sameSite: 'lax',
+    secure: false,
+    httpOnly: false,
+    path: '/',
+  })
+  res.status(200).json({ message: 'トークンを削除しました' })
+})
+
+// すべてのデータを削除
+const deleteAll = async (category: string) => {
+  const fetchedAllData = await fetch(`${BASE_URL}/${category}`)
+}
 
 server.use(middlewares)
 server.use(router)

@@ -1,52 +1,20 @@
 {
   "threads": [
     {
-      "id": "1",
-      "title": "タイトル",
-      "topic": "トピック"
+      "title": "Lorem Ipsum",
+      "topic": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim eius maxime minus itaque architecto tenetur culpa. Sunt praesentium fugit assumenda.",
+      "createdAt": "2024-05-26T19:40:29.222+09:00",
+      "commentTotal": 0,
+      "id": 1
     },
     {
-      "id": "3",
-      "title": "タイトル3",
-      "topic": "トピック3"
+      "title": "Agnus Dei",
+      "topic": "Fuga animi dolores quae aliquid pariatur rem possimus error perspiciatis maiores molestias. Consectetur ullam at facere tempore? Molestiae, nihil! Id!",
+      "createdAt": "2024-05-26T19:40:32.168+09:00",
+      "commentTotal": 0,
+      "id": 2
     }
   ],
-  "comments": [
-    {
-      "id": "1",
-      "commenter": "名無し",
-      "commentContent": "コメント内容"
-    }
-  ],
-  "users": [
-    {
-      "id": "1",
-      "name": "typicode",
-      "password": 1234
-    },
-    {
-      "name": "test",
-      "email": "test@example.com",
-      "comments": [],
-      "id": "4QWBqKi"
-    },
-    {
-      "name": "test",
-      "email": "test@example.com",
-      "comments": [],
-      "id": "txADZZv"
-    },
-    {
-      "name": "test",
-      "email": "test@example.com",
-      "comments": [],
-      "id": "2JsvoA6"
-    },
-    {
-      "name": "test",
-      "email": "test@example.com",
-      "comments": [],
-      "id": "UyNLjpM"
-    }
-  ]
+  "comments": [],
+  "users": []
 }
