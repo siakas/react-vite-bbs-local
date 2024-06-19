@@ -17,7 +17,7 @@ server.use(cookieParser())
 server.use(jsonServer.bodyParser)
 
 // API のベース URL を定義
-const BASE_URL = 'http://localhost:8000'
+const BASE_URL = 'http://localhost:8080'
 
 // 引数の name に一致するユーザを返す関数
 const getUserByName = async (name: string) => {
@@ -183,6 +183,6 @@ const deleteAll = async (category: string) => {
 
 server.use(middlewares)
 server.use(router)
-server.listen(8000, () => {
+server.listen(8080, () => {
   console.log('JSON Server is running')
 })
