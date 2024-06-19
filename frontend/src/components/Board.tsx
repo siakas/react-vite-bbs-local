@@ -8,12 +8,17 @@ import {
   CardContent,
   CardFooter,
 } from '@/components/ui/card'
+import type { Thread } from '@/types/types'
 
-export const Board = () => {
+type Props = Pick<Thread, 'id' | 'title' | 'topic'> & {
+  commentCounts: number
+}
+
+export const Board = ({ id, title, topic, commentCounts }: Props) => {
   return (
-    <Card className="shadow-lg">
+    <Card className="flex flex-col shadow-lg">
       <CardHeader>
-        <CardTitle>New Product Launch</CardTitle>
+        <CardTitle>{title}</CardTitle>
         <CardDescription>
           <span className="flex items-center space-x-2">
             <Avatar className="size-6">
@@ -25,15 +30,12 @@ export const Board = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <p>
-          We are excited to announce the launch of our latest product. It
-          features innovative technology and a sleek design.
-        </p>
+        <p>{topic}</p>
       </CardContent>
-      <CardFooter className="flex items-center justify-between">
-        <p className="text-sm text-gray-500">12 comments</p>
+      <CardFooter className="mt-auto flex items-center justify-between">
+        <p className="text-sm text-gray-500">{commentCounts} comments</p>
         <Button size="sm" asChild>
-          <a href="/threads/:threadId">View Comments</a>
+          <a href={`/threads/${id}`}>View Comments</a>
         </Button>
       </CardFooter>
     </Card>

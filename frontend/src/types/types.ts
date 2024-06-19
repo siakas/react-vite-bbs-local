@@ -18,7 +18,7 @@ export type User = {
 export type UserState = {
   user: User
   isLoading: boolean
-  error: null | string
+  error: string | null
 }
 
 export type Comment = {
@@ -33,7 +33,7 @@ export type Comment = {
 export type CommentsState = {
   comments: Comment[]
   isLoading: boolean
-  error: null | string
+  error: string | null
 }
 
 export type Thread = {
@@ -48,8 +48,8 @@ export type Thread = {
 export type ThreadsState = {
   threads: Thread[]
   isLoading: boolean
-  currentThread: null | Thread
-  error: null | string
+  currentThread: Thread | null
+  error: string | null
 }
 
 export interface ThreadFormProps {
