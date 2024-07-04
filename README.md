@@ -61,7 +61,7 @@ This will start the frontend server.
 Open your web browser and go to:
 
 ```
-http://127.0.0.1:5173/
+http://localhost:5173/
 ```
 
 You should now see the bulletin board application running.
