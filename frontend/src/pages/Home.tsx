@@ -58,7 +58,7 @@ export const Home = () => {
   return (
     <>
       <div className="flex justify-end gap-4 bg-gray-100 px-6 py-4">
-        <CreateThreadDialog />
+        <CreateThreadDialog threadsDispatch={threadsDispatch} />
         <DeleteAllButton />
       </div>
 

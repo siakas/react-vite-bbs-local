@@ -1,10 +1,14 @@
 import { useEffect, useReducer } from 'react'
 import axios from 'axios'
-import { PlusIcon } from 'lucide-react'
 import { useParams } from 'react-router-dom'
+import { CreateCommentDialog } from '@/components/CreateCommentDialog'
 import { ThreadComment } from '@/components/ThreadComment'
-import { Button } from '@/components/ui/button'
-import { threadReducer, threadsInitialState } from '@/reducers/reducers'
+import {
+  commentReducer,
+  commentsInitialState,
+  threadReducer,
+  threadsInitialState,
+} from '@/reducers/reducers'
 
 export const Thread = () => {
   const { threadId } = useParams()
@@ -17,6 +21,15 @@ export const Thread = () => {
     isLoading: threadsLoading,
     error: threadsError,
   } = threadsState
+  const [commentsState, commentDispatch] = useReducer(
+    commentReducer,
+    commentsInitialState,
+  )
+  const {
+    comments,
+    isLoading: commentsIsLoading,
+    error: commentsError,
+  } = commentsState
 
   // スレッドデータとコメントデータの取得
   useEffect(() => {
@@ -35,7 +48,19 @@ export const Thread = () => {
       }
 
       // 現在のページのスレッドのコメントの取得
-      // TODO: ここにコメントの取得処理を追加
+      try {
+        const fetchedCommentsData = await axios.get(
+          `/api/threads/${threadId}/comments`,
+        )
+        const commentsData = fetchedCommentsData.data
+        // コメントの取得が成功したら、コメントのデータをセット
+        commentDispatch({ type: 'set_comments', comments: commentsData })
+      } catch (error) {
+        commentDispatch({
+          type: 'set_error',
+          error: `コメントの取得でエラーが起きました。${error}`,
+        })
+      }
     }
     fetchData()
   }, [threadId])
@@ -46,17 +71,27 @@ export const Thread = () => {
         <div className="m-auto w-full max-w-4xl py-8">
           <div className="mb-6 flex items-center justify-between">
             <h1 className="text-2xl font-bold">{currentThread?.title}</h1>
-            <Button variant="outline">
-              <PlusIcon className="mr-2 size-4" />
-              New Comment
-            </Button>
+            <CreateCommentDialog commentDispatch={commentDispatch} />
           </div>
-          <div className="space-y-6">
-            <ThreadComment root={true} />
-            <ThreadComment />
-            <ThreadComment />
-            <ThreadComment />
-          </div>
+          {currentThread && (
+            <div className="space-y-6">
+              <ThreadComment
+                root={true}
+                content={currentThread.topic}
+                createdAt={currentThread.createdAt}
+              />
+              {comments.map((comment) => (
+                <ThreadComment
+                  key={comment.id}
+                  content={comment.commentContent}
+                  createdAt={comment.createdAt}
+                />
+              ))}
+              {/* <ThreadComment />
+                <ThreadComment />
+                <ThreadComment /> */}
+            </div>
+          )}
         </div>
       )}
     </>

@@ -8,13 +8,20 @@ import {
   CardContent,
   CardFooter,
 } from '@/components/ui/card'
+import { formatDateTime } from '@/lib/utils'
 import type { Thread } from '@/types/types'
 
-type Props = Pick<Thread, 'id' | 'title' | 'topic'> & {
+type Props = Pick<Thread, 'id' | 'title' | 'topic' | 'createdAt'> & {
   commentCounts: number
 }
 
-export const Board = ({ id, title, topic, commentCounts }: Props) => {
+export const Board = ({
+  id,
+  title,
+  topic,
+  createdAt,
+  commentCounts,
+}: Props) => {
   return (
     <Card className="flex flex-col shadow-lg">
       <CardHeader>
@@ -25,7 +32,9 @@ export const Board = ({ id, title, topic, commentCounts }: Props) => {
               <AvatarImage src="https://github.com/shadcn.png" />
               <AvatarFallback>JD</AvatarFallback>
             </Avatar>
-            <span className="text-sm text-gray-500">John Doe - 2023/05/01</span>
+            <span className="text-sm text-gray-500">
+              John Doe - {formatDateTime(createdAt)}
+            </span>
           </span>
         </CardDescription>
       </CardHeader>
@@ -33,9 +42,9 @@ export const Board = ({ id, title, topic, commentCounts }: Props) => {
         <p>{topic}</p>
       </CardContent>
       <CardFooter className="mt-auto flex items-center justify-between">
-        <p className="text-sm text-gray-500">{commentCounts} comments</p>
+        <p className="text-sm text-gray-500">{commentCounts} コメント</p>
         <Button size="sm" asChild>
-          <a href={`/threads/${id}`}>View Comments</a>
+          <a href={`/threads/${id}`}>スレッドを見る</a>
         </Button>
       </CardFooter>
     </Card>

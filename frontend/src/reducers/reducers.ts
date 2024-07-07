@@ -1,4 +1,5 @@
 import type {
+  CommentAction,
   CommentsState,
   ThreadAction,
   ThreadsState,
@@ -59,6 +60,45 @@ export const userReducer = (
       break
     default:
       return userState
+  }
+}
+
+// CommentsState の初期値
+export const commentsInitialState: CommentsState = {
+  comments: [],
+  isLoading: true,
+  error: null,
+}
+
+// CommentsState の reducer
+export const commentReducer = (
+  commentsState: CommentsState,
+  action: CommentAction,
+) => {
+  switch (action.type) {
+    case 'add_comment':
+      return {
+        ...commentsState,
+        comments: [...commentsState.comments, action.newComment],
+        isLoading: false,
+        error: null,
+      }
+      break
+    case 'set_comments':
+      return {
+        ...commentsState,
+        comments: action.comments,
+        isLoading: false,
+        error: null,
+      }
+      break
+    case 'set_error':
+      return {
+        ...commentsState,
+        isLoading: false,
+        error: action.error,
+      }
+      break
   }
 }
 
