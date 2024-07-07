@@ -66,7 +66,10 @@ export const CreateCommentDialog = ({ commentDispatch }: CommentFormProps) => {
           error: `コメント投稿時にエラーが起きました。${error}`,
         })
       }
+      // 入力フォームをリセット
       formRef.current?.reset()
+      // ダイアログを閉じる
+      setIsOpen(false)
     },
     [commentDispatch, threadId, inputError],
   )

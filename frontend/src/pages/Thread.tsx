@@ -87,9 +87,6 @@ export const Thread = () => {
                   createdAt={comment.createdAt}
                 />
               ))}
-              {/* <ThreadComment />
-                <ThreadComment />
-                <ThreadComment /> */}
             </div>
           )}
         </div>

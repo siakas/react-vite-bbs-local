@@ -79,7 +79,7 @@ server.post('/threads', (req, res, next) => {
 })
 
 // コメント投稿
-server.post('/threds/:threadId/comments', async (req, res, next) => {
+server.post('/threads/:threadId/comments', async (req, res, next) => {
   const threadId = req.params.threadId
 
   // threadId が数値でない場合はエラーを返す
@@ -141,7 +141,7 @@ server.post('/threds/:threadId/comments', async (req, res, next) => {
     // コメント番号、投稿者名、ユーザ ID の設定
     req.body.commentNo = newCommentTotal
     if (!req.body.commenter) {
-      req.body.commenter = '名無し'
+      req.body.commenter = ''
     }
     if (!req.user) {
       req.body.userId = 0

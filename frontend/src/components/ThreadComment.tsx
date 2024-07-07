@@ -7,7 +7,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
-import { cn, formatDateTime } from '@/lib/utils'
+import { cn, formatDateTime, formatRelativeDateTime } from '@/lib/utils'
 
 type Props = {
   root?: boolean
@@ -27,7 +27,10 @@ export const ThreadComment = ({ root = false, content, createdAt }: Props) => {
           <div>
             <p className="font-medium">Jared Palmer</p>
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              {formatDateTime(createdAt)}
+              {/* {formatDateTime(createdAt)} */}
+              {root
+                ? formatDateTime(createdAt)
+                : formatRelativeDateTime(createdAt)}
             </p>
           </div>
         </div>

@@ -4,21 +4,21 @@
       "title": "Lorem Ipsum",
       "topic": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim eius maxime minus itaque architecto tenetur culpa. Sunt praesentium fugit assumenda.",
       "createdAt": "2024-05-26T19:40:29.222+09:00",
-      "commentTotal": 0,
+      "commentTotal": 4,
       "id": 1
     },
     {
       "title": "Agnus Dei",
       "topic": "Fuga animi dolores quae aliquid pariatur rem possimus error perspiciatis maiores molestias. Consectetur ullam at facere tempore? Molestiae, nihil! Id!",
       "createdAt": "2024-05-26T19:40:32.168+09:00",
-      "commentTotal": 0,
+      "commentTotal": 1,
       "id": 2
     },
     {
       "title": "sss",
       "topic": "dddd",
       "createdAt": "2024-07-06T09:25:19.184+09:00",
-      "commentTotal": 0,
+      "commentTotal": 1,
       "id": 3
     },
     {
@@ -46,7 +46,7 @@
       "title": "dsafsad",
       "topic": "dfadsafasdf",
       "createdAt": "2024-07-06T13:15:02.326+09:00",
-      "commentTotal": 0,
+      "commentTotal": 1,
       "id": 7
     },
     {
@@ -59,88 +59,67 @@
   ],
   "comments": [
     {
-      "commenter": "",
-      "commentContent": "テスト",
-      "threadId": "2",
-      "id": 1
-    },
-    {
-      "commenter": "",
-      "commentContent": "ててたてあえた",
-      "threadId": "2",
-      "id": 2
-    },
-    {
-      "commenter": "",
-      "commentContent": "sdafsafas",
-      "threadId": "2",
-      "id": 3
-    },
-    {
-      "commenter": "",
-      "commentContent": "sadfsafsad",
-      "threadId": "1",
-      "id": 4
-    },
-    {
-      "commenter": "",
-      "commentContent": "sssss",
-      "threadId": "1",
-      "id": 5
-    },
-    {
-      "commenter": "",
-      "commentContent": "aaaa",
-      "threadId": "1",
-      "id": 6
-    },
-    {
-      "commenter": "",
-      "commentContent": "ffff",
-      "threadId": "3",
-      "id": 7
-    },
-    {
-      "commenter": "",
+      "commenter": "dddd",
       "commentContent": "dddd",
-      "threadId": "3",
-      "id": 8
+      "commentNo": 1,
+      "userId": 0,
+      "createdAt": "2024-07-07T09:12:38.131+09:00",
+      "threadId": "2",
+      "id": 15
     },
     {
-      "commenter": "",
-      "commentContent": "sssss",
-      "threadId": "3",
-      "id": 9
-    },
-    {
-      "commenter": "",
-      "commentContent": "aaaaa",
-      "threadId": "3",
-      "id": 10
-    },
-    {
-      "commenter": "sadfsaf",
-      "commentContent": "dsafsddfsadfsaf",
+      "commenter": "sss",
+      "commentContent": "sssssss",
+      "commentNo": 1,
+      "userId": 0,
+      "createdAt": "2024-07-07T09:13:04.666+09:00",
       "threadId": "1",
-      "id": 11
-    },
-    {
-      "commenter": "sdafdasfdsasad",
-      "commentContent": "sadfasdfadfsafasdfsad",
-      "threadId": "1",
-      "id": 12
+      "id": 16
     },
     {
       "commenter": "dddd",
-      "commentContent": "adfasfsadsdafsa",
+      "commentContent": "ddddddd",
+      "commentNo": 2,
+      "userId": 0,
+      "createdAt": "2024-07-07T09:13:11.106+09:00",
       "threadId": "1",
-      "id": 13
+      "id": 17
     },
     {
-      "commenter": "ddd",
-      "commentContent": "sadsfsafdsafa",
+      "commenter": "",
+      "commentContent": "sadfsafadsfdsa",
+      "commentNo": 3,
+      "userId": 0,
+      "createdAt": "2024-07-07T09:13:13.493+09:00",
       "threadId": "1",
-      "id": 14
+      "id": 18
+    },
+    {
+      "commenter": "",
+      "commentContent": "dsafsdafsadfas",
+      "commentNo": 4,
+      "userId": 0,
+      "createdAt": "2024-07-07T09:13:15.926+09:00",
+      "threadId": "1",
+      "id": 19
+    },
+    {
+      "commenter": "",
+      "commentContent": "ddddd",
+      "commentNo": 1,
+      "userId": 0,
+      "createdAt": "2024-07-07T09:16:07.790+09:00",
+      "threadId": "3",
+      "id": 20
+    },
+    {
+      "commenter": "dddd",
+      "commentContent": "ddddd",
+      "commentNo": 1,
+      "userId": 0,
+      "createdAt": "2024-07-07T09:23:13.490+09:00",
+      "threadId": "7",
+      "id": 21
     }
   ],
   "users": []
