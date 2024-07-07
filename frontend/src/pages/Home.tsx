@@ -59,7 +59,7 @@ export const Home = () => {
     <>
       <div className="flex justify-end gap-4 bg-gray-100 px-6 py-4">
         <CreateThreadDialog threadsDispatch={threadsDispatch} />
-        <DeleteAllButton />
+        <DeleteAllButton threadsDispatch={threadsDispatch} />
       </div>
 
       {threadsIsLoading ? null : (

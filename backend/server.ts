@@ -1,3 +1,5 @@
+import path = require('path')
+
 const dotenv = require('dotenv')
 dotenv.config()
 const jwt = require('jsonwebtoken')
@@ -176,10 +178,31 @@ server.post('/users/signout', (req, res) => {
   res.status(200).json({ message: 'トークンを削除しました' })
 })
 
-// すべてのデータを削除
+// 指定されたカテゴリの全データを削除
 const deleteAll = async (category: string) => {
   const fetchedAllData = await fetch(`${BASE_URL}/${category}`)
+  const allData = await fetchedAllData.json()
+  const allId = allData.map((data) => data.id)
+  allId.forEach(async (id) => {
+    await fetch(`${BASE_URL}/${category}/${id}`, {
+      method: 'DELETE',
+    })
+  })
 }
+// `reset` API のエンドポイントにリクエストがあった場合、全データを削除
+server.delete('/reset', async (req, res) => {
+  res.clearCookie('token', {
+    sameSite: 'lax',
+    secure: false,
+    httpOnly: false,
+    path: '/',
+  })
+  await deleteAll('comments')
+  await deleteAll('users')
+  await deleteAll('threads')
+
+  res.status(200).json({ message: 'リセットに成功しました' })
+})
 
 server.use(middlewares)
 server.use(router)
